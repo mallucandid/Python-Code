@@ -17,8 +17,8 @@ def run():
     app.run(host="0.0.0.0", port=port)
 
 # Bot settings using Render environment variables
-API_ID = int(os.environ.get("API_ID"))
-API_HASH = os.environ.get("API_HASH")
+API_ID = 34810639
+API_HASH = "bdba27659c36ebddfecc579183fa35a5"
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID"))
 

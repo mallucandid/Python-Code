@@ -261,9 +261,14 @@ def main() -> None:
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
     app.add_handler(MessageHandler(filters.VIDEO | filters.Document.VIDEO, handle_video))
 
+    app.add_handler(CommandHandler("ping", ping))
+
     keep_alive()
     logger.info("Bot is running. Loaded %d stored video(s).", len(video_store))
     app.run_polling()
+
+async def ping(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_text("പോങ്! ബോട്ട് ലൈവ് ആണ് അശ്വിൻ 🚀")
 
 if __name__ == "__main__":
     main()

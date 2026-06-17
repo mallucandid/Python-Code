@@ -96,7 +96,20 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return
 
     try:
-        sent_message = await update.message.reply_video(video=file_id)
+        bot_video_caption = """🎬 <b>The Mallu Candid Cut Movies</b>
+
+⚠️ <b>Auto-Deletion Notice:</b> To keep our servers fast and organized, this video file will be permanently deleted from this chat <b>within 10 minutes</b>.
+
+📌 <b><i>Action Required: To retain a copy for personal use, please forward and save this video to your Saved Messages or a dedicated folder immediately.</i></b>
+
+📢 <b>Stay Updated:</b> Follow our official channel for real-time movie releases, reviews, and updates.
+https://t.me/+fKiyg-NdmRw1NDA0"""
+        
+        sent_message = await update.message.reply_video(
+            video=file_id,
+            caption=bot_video_caption,
+            parse_mode="HTML"
+        )
     except Exception as e:
         logger.error("Failed to send video for code %s (file_id %s): %s", code, file_id, e)
         await update.message.reply_text(
